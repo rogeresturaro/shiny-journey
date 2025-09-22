@@ -34,6 +34,6 @@ def test_divisao():
 def test_divisao_negativa():
     assert divisao(-10, 2) == -5
     assert divisao(9, -3) == -3
-    assert divisao(-8, -2) == 
+    assert divisao(-8, -2) == 4
 
 
