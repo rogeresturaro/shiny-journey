@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Enviar alerta para o Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           args: |
             🚀 Novo evento no repositório **${{ github.repository }}**
             🔹 Tipo de evento: **${{ github.event_name }}**
-            🔹 Branch: **${{ github.ref }}**
-            🔹 Autor:
+            🔹 Branch: **${{ github.ref_name }}**
+            🔹 Autor: **${{ github.actor }}**
