@@ -1,0 +1,20 @@
+name: Alerts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to Discord
+        uses: Ilshidur/action-discord@v2
+        with:
+          args: "Foi criado um novo commit ou PR no repositório *shiny-journey*."
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
